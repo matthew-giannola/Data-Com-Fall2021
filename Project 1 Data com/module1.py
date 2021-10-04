@@ -1,7 +1,6 @@
 # import socket module
 from socket import *
 import sys  # In order to terminate the program
-
 serverSocket = socket(AF_INET, SOCK_STREAM) # Alternative (better) syntax
 serverPort = 6788
 serverSocket.bind(("", serverPort))
@@ -23,7 +22,6 @@ while True:
     #Send one HTTP header line into socket
     #Fill in start
     connectionSocket.send("HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n".encode())
-    connectionSocket.send("\r\n".encode())
     #Fill in end
      #Send the content of the requested file to the client
     for i in range(0, len(outputdata)):
