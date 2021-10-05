@@ -1,10 +1,12 @@
 # import socket module
+from threading import Thread
 from socket import *
 import sys  # In order to terminate the program
+
 serverSocket = socket(AF_INET, SOCK_STREAM) # Alternative (better) syntax
-serverPort = 6788
-serverSocket.bind(("", serverPort))
-serverSocket.listen()
+serverPort = 6789
+serverSocket.bind(('192.168.0.107', serverPort))
+serverSocket.listen(5)
 
 # Server should be up and running and listening to the incoming connections
 #Fill in end
@@ -12,6 +14,7 @@ while True:
  	#Establish the connection
  print('Ready to serve...')
  connectionSocket, addr = serverSocket.accept()	 	#Fill in end
+
  try:
     message = connectionSocket.recv(1024) #Fill in start #Fill in end
     print ("Message is: ", message)
@@ -44,4 +47,5 @@ while True:
 
 serverSocket.close()
 sys.exit()  # Terminate the program after sending the corresponding data
+
 
