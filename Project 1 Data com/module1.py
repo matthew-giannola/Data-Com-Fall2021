@@ -3,9 +3,10 @@ from threading import Thread
 from socket import *
 import sys  # In order to terminate the program
 
+serverAddress = '192.168.0.107'
 serverSocket = socket(AF_INET, SOCK_STREAM) # Alternative (better) syntax
 serverPort = 6789
-serverSocket.bind(('192.168.0.107', serverPort))
+serverSocket.bind((serverAddress, serverPort))
 serverSocket.listen(5)
 
 # Server should be up and running and listening to the incoming connections
